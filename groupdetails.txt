@@ -1,7 +1,0 @@
-Project name : Junction
-Project members:
-	Joy Barai (2018-1-60-011)
-	Maleha Israt Chowdhury (2018-1-60-015)
-	Kamarrum Monira Mow (2018-1-60-016)
-
-****Please see the requirements.txt file before running the project.
