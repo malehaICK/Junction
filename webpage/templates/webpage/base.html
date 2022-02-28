@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    
+ <link rel="stylesheet" type="text/css" href="{% static 'webpage/main.css' %}">
+
+  {% if title %}
+  <title>Junction!-{{ title }}</title>
+  {% else %}
+  <title> junction webpage</title>
+  {% endif %}
+</head>
+<body>
+	<header class="site-header text-dark">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="{% url 'Junction-home' %}">Junction </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="{% url 'Junction-home' %}">Home</a>
+          <a class="nav-item nav-link" href="{% url 'Junction-about' %}">About</a>
+        </div>
+        <!-- Navbar Right Side -->
+        <div class="navbar-nav">
+          <form method="get" action="/search" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" id="query">
+            <button class="btn btn-outline-sucess my-2 my-sm-0 " type="submit">Search</button>
+          </form>
+          {% if user.is_authenticated %}
+            <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+           <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+
+          {% else %}
+            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+          {% endif %}  
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+	<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+      {% block content %}{% endblock %}
+      
+    </div>
+    <div class="col-md-4">
+      <div class="content-section bg-success">
+        <h3 class="bg-gradient-warning text-white">Junction 1.0</h3>
+        <p class='bg-gradient-warning text-white'>This is an assisting platform for people.
+          Here you can get-
+          <ul class="list-group list-group-flush bg-dark">
+            <li class="list-group-item list-group-item-danger text-dark">Sell a Service</li>
+            <li class="list-group-item list-group-item-warning text-dark">
+             Get a Service
+            </li>
+            <li class="list-group-item list-group-item-primary text-dark">Details of work </li>
+            <li class="list-group-item list-group-item-success text-dark">and many more...</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+      
+
+      
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

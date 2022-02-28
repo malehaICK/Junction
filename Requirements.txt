@@ -1,0 +1,24 @@
+webpage->templates->webpage->home.html
+
+->please open control panel on project folder and install below requirements.
+DB_USER:my_db_user
+DB_PASS:my_db_pass_123
+
+requirements:
+pip install django-crispy-forms
+
+python -m pip install Pillow
+
+python manage.py migrate
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+
+
+For admin access,
+User name: mow
+Email address: m@gmail.com
+Password:123
+
