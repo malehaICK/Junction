@@ -26,7 +26,7 @@ SECRET_KEY = 'n8t_#parvc=o45x(bf1+%-#dh+itff%%o!-@ry=9rm1c@pc8q+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 
 # Application definition
