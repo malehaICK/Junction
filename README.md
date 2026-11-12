@@ -59,6 +59,20 @@ Step 4. Start the development server and open http://127.0.0.1:8000/ in your bro
 python manage.py runserver
 ```
 
+## Configuration
+
+Secrets are read from environment variables and are never stored in the repository. Set these before running the server (all are optional for local development):
+
+```bash
+export DJANGO_DEBUG=True                 # development only; defaults to False
+export DJANGO_SECRET_KEY="your-own-long-random-key"
+export DJANGO_ALLOWED_HOSTS="localhost,127.0.0.1"
+export EMAIL_HOST_USER="your-address@example.com"
+export EMAIL_HOST_PASSWORD="your-app-password"
+```
+
+The SQLite database (`db.sqlite3`) and uploaded files in `media/` are created locally and are intentionally not committed. Run `python manage.py migrate` to create a fresh database.
+
 ## Author
 
 Maleha Israt Chowdhury. [Portfolio](https://malehaisratchowdhury.netlify.app/)
