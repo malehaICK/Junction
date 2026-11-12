@@ -1,5 +1,0 @@
-webpage->templates->webpage->home.html
-
-Username (leave blank to use 'user'): mow
-Email address: m@gmail.com
-Password:123
